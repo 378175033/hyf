@@ -11,21 +11,16 @@
 cc.Class({
     extends: cc.Component,
 
-    properties: {},
+    properties: {
+        target : ""
+    },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function () {
-        this.node.on('mousedown', function ( event ) {
-            cc.director.loadScene("menu");
+        this.node.on('mousedown',  ( event ) => {
+            console.log(this.target);
+            cc.director.loadScene(this.target);
         });
     },
-
-    start: function () {
-        // setTimeout(function () {
-        //     cc.director.loadScene("menu");
-        // }.bind(this), 5000);
-    }
-
-    // update (dt) {},
 });
